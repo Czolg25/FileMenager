@@ -13,14 +13,15 @@ process.env.TZ = "Europe/Warsaw";
 let index = 0;
 
 app.use(express.static(path.join(__dirname, 'static')));
-
+console.log("1")
 app.set('views', path.join(__dirname, 'views'));
 app.engine('hbs', hbs({
     extname: 'hbs',
     defaultLayout: 'main.hbs',
-    iconsCustom: iconsCustom,
+    helpers: iconsCustom,
     partialsDir: path.join(__dirname, 'views', 'partials')
 }));
+
 app.set('view engine', 'hbs');
 
 app.get('/', (req, res) => {
